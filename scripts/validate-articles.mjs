@@ -124,6 +124,22 @@ for (const requiredBrandSnippet of [
   }
 }
 
+for (const requiredTrackingSnippet of [
+  "G-V70KJ8GE9J",
+  "NEXT_PUBLIC_GA_MEASUREMENT_ID",
+  "googletagmanager.com/gtag/js",
+  "It0Es9r6NSXMIGl8Ll60bvQZ06RR3EinTe6NHYFTJYc",
+  "verification",
+  "ca-pub-3050601904412736",
+  "NEXT_PUBLIC_ADSENSE_PUBLISHER_ID",
+  "pagead2.googlesyndication.com/pagead/js/adsbygoogle.js",
+  "crossOrigin"
+]) {
+  if (!layoutSource.includes(requiredTrackingSnippet) && !envExampleSource.includes(requiredTrackingSnippet)) {
+    throw new Error(`Tracking or verification setup is missing: ${requiredTrackingSnippet}`);
+  }
+}
+
 if (!adsTxtSource.includes("pub-3050601904412736") || adsTxtSource.includes("status: 404")) {
   throw new Error("ads.txt must return a configured AdSense publisher line without a 404 fallback.");
 }

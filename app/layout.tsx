@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Newsreader, Space_Grotesk } from "next/font/google";
 import Link from "next/link";
+import Script from "next/script";
 import { siteUrl } from "@/lib/env";
 import "./globals.css";
 
@@ -20,6 +21,9 @@ export const metadata: Metadata = {
     types: {
       "application/rss+xml": "/rss.xml"
     }
+  },
+  verification: {
+    google: "It0Es9r6NSXMIGl8Ll60bvQZ06RR3EinTe6NHYFTJYc"
   }
 };
 
@@ -31,9 +35,35 @@ const nav = [
   ["Sources", "/sources"]
 ];
 
+const gaMeasurementId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "G-V70KJ8GE9J";
+const adsensePublisherId = process.env.NEXT_PUBLIC_ADSENSE_PUBLISHER_ID || "ca-pub-3050601904412736";
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
+      <head>
+        {gaMeasurementId && (
+          <>
+            <Script src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`} strategy="afterInteractive" />
+            <Script id="ga4-config" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${gaMeasurementId}', { anonymize_ip: true });
+              `}
+            </Script>
+          </>
+        )}
+        {adsensePublisherId && (
+          <Script
+            async
+            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsensePublisherId}`}
+            crossOrigin="anonymous"
+            strategy="afterInteractive"
+          />
+        )}
+      </head>
       <body className={`${inter.variable} ${spaceGrotesk.variable} ${newsreader.variable}`}>
         <header className="nav">
           <div className="container nav-inner">
