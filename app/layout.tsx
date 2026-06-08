@@ -59,11 +59,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </>
         )}
         {adsensePublisherId && (
-          <Script
+          <script
             async
             src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsensePublisherId}`}
             crossOrigin="anonymous"
-            strategy="afterInteractive"
           />
         )}
       </head>

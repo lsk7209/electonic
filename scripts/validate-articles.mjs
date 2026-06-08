@@ -135,6 +135,7 @@ for (const requiredTrackingSnippet of [
   "ca-pub-3050601904412736",
   "NEXT_PUBLIC_ADSENSE_PUBLISHER_ID",
   "pagead2.googlesyndication.com/pagead/js/adsbygoogle.js",
+  "<script",
   "crossOrigin"
 ]) {
   if (!layoutSource.includes(requiredTrackingSnippet) && !envExampleSource.includes(requiredTrackingSnippet)) {
