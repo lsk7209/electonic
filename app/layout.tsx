@@ -88,7 +88,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <div className="brand"><span className="bolt">W</span><span>wattbenchs</span></div>
               <p style={{ marginTop: 12 }}>Public-data electricity benchmarks, bill estimates, and practical guides. Not affiliated with any utility.</p>
             </div>
-            <div><strong>Data</strong><Link href="/methodology">Methodology</Link><Link href="/sources">Sources</Link><Link href="/compare">Compare</Link></div>
+            <div><strong>Data</strong><Link href="/methodology">Methodology</Link><Link href="/sources">Sources</Link><Link href="/editorial-policy">Editorial policy</Link><Link href="/compare">Compare</Link></div>
             <div><strong>Guides</strong><Link href="/blog">Blog</Link><Link href="/assistance/california">Bill help</Link><Link href="/save/texas">Save money</Link><Link href="/rss.xml">RSS feed</Link></div>
             <div><strong>Company</strong><Link href="/about">About</Link><Link href="/contact">Contact</Link><Link href="/privacy">Privacy</Link><Link href="/sources">Sources</Link></div>
           </div>

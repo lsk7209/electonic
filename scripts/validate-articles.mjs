@@ -5,6 +5,7 @@ const blogSource = fs.readFileSync("app/blog/page.tsx", "utf8");
 const guidesSource = fs.readFileSync("app/guides/page.tsx", "utf8");
 const articlePageSource = fs.readFileSync("app/guides/[slug]/page.tsx", "utf8");
 const contactPageSource = fs.readFileSync("app/contact/page.tsx", "utf8");
+const editorialPolicySource = fs.readFileSync("app/editorial-policy/page.tsx", "utf8");
 const sitemapSource = fs.readFileSync("app/sitemap.ts", "utf8");
 const guideHubSource = fs.readFileSync("lib/guide-hubs.ts", "utf8");
 const guideHubPageSource = fs.readFileSync("components/GuideHub.tsx", "utf8");
@@ -120,6 +121,10 @@ if (!sitemapSource.includes('"/contact"') || !layoutSource.includes('href="/cont
   throw new Error("AdSense readiness requires a crawlable contact page linked from the layout and sitemap.");
 }
 
+if (!sitemapSource.includes('"/editorial-policy"') || !layoutSource.includes('href="/editorial-policy"')) {
+  throw new Error("AdSense readiness requires a crawlable editorial policy linked from the layout and sitemap.");
+}
+
 for (const requiredContactSnippet of [
   "editorial@wattbenchs.com",
   "data corrections",
@@ -129,6 +134,18 @@ for (const requiredContactSnippet of [
 ]) {
   if (!contactPageSource.includes(requiredContactSnippet)) {
     throw new Error(`Contact page must include ${requiredContactSnippet}.`);
+  }
+}
+
+for (const requiredEditorialSnippet of [
+  "Source standard",
+  "Estimate limitations",
+  "Corrections",
+  "Advertising separation",
+  "Reader safety"
+]) {
+  if (!editorialPolicySource.includes(requiredEditorialSnippet)) {
+    throw new Error(`Editorial policy must include ${requiredEditorialSnippet}.`);
   }
 }
 

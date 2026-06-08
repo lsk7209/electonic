@@ -17,6 +17,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...guideHubs.map((hub) => hub.path),
     "/rss.xml",
     "/methodology",
+    "/editorial-policy",
     "/sources",
     "/about",
     "/contact",
