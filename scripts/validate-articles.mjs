@@ -129,6 +129,8 @@ for (const requiredTrackingSnippet of [
   "NEXT_PUBLIC_GA_MEASUREMENT_ID",
   "googletagmanager.com/gtag/js",
   "It0Es9r6NSXMIGl8Ll60bvQZ06RR3EinTe6NHYFTJYc",
+  "98fda8d8fe95c1df7e31abd50a5a8cf63ef48549",
+  "naver-site-verification",
   "verification",
   "ca-pub-3050601904412736",
   "NEXT_PUBLIC_ADSENSE_PUBLISHER_ID",
