@@ -14,6 +14,7 @@ const dbSource = fs.readFileSync("lib/db/index.ts", "utf8");
 const envSource = fs.readFileSync("lib/env.ts", "utf8");
 const layoutSource = fs.readFileSync("app/layout.tsx", "utf8");
 const envExampleSource = fs.readFileSync(".env.example", "utf8");
+const adsTxtSource = fs.readFileSync("app/ads.txt/route.ts", "utf8");
 
 function matches(pattern) {
   return [...source.matchAll(pattern)].map((match) => match[1]);
@@ -121,6 +122,10 @@ for (const requiredBrandSnippet of [
   if (!envSource.includes(requiredBrandSnippet) && !layoutSource.includes(requiredBrandSnippet) && !envExampleSource.includes(requiredBrandSnippet)) {
     throw new Error(`Site brand/domain is missing required value: ${requiredBrandSnippet}`);
   }
+}
+
+if (!adsTxtSource.includes("pub-3050601904412736") || adsTxtSource.includes("status: 404")) {
+  throw new Error("ads.txt must return a configured AdSense publisher line without a 404 fallback.");
 }
 
 for (const requiredEiaSnippet of [
