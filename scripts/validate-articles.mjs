@@ -177,6 +177,21 @@ for (const requiredTrackingSnippet of [
   }
 }
 
+for (const requiredStructuredDataSnippet of [
+  "siteStructuredData",
+  "\"@type\": \"Organization\"",
+  "\"@type\": \"WebSite\"",
+  "editorial@wattbenchs.com",
+  "contactPoint",
+  "/editorial-policy",
+  "/privacy",
+  "/contact"
+]) {
+  if (!layoutSource.includes(requiredStructuredDataSnippet)) {
+    throw new Error(`Global structured data is missing: ${requiredStructuredDataSnippet}`);
+  }
+}
+
 if (fs.existsSync("app/ads.txt/route.ts")) {
   throw new Error("ads.txt should be served as a simple static public file, not a Next route.");
 }

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Newsreader, Space_Grotesk } from "next/font/google";
 import Link from "next/link";
 import Script from "next/script";
+import { JsonLd } from "@/components/JsonLd";
 import { siteUrl } from "@/lib/env";
 import "./globals.css";
 
@@ -40,6 +41,51 @@ const nav = [
 
 const gaMeasurementId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "G-V70KJ8GE9J";
 const adsensePublisherId = process.env.NEXT_PUBLIC_ADSENSE_PUBLISHER_ID || "ca-pub-3050601904412736";
+const siteStructuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": `${siteUrl}/#organization`,
+      name: "wattbenchs",
+      url: siteUrl,
+      email: "editorial@wattbenchs.com",
+      contactPoint: {
+        "@type": "ContactPoint",
+        contactType: "editorial corrections and privacy requests",
+        email: "editorial@wattbenchs.com",
+        url: `${siteUrl}/contact`
+      },
+      knowsAbout: [
+        "US electricity rates",
+        "average electric bills",
+        "residential electricity usage",
+        "electric bill assistance",
+        "EIA electricity data"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${siteUrl}/#website`,
+      name: "wattbenchs",
+      url: siteUrl,
+      publisher: { "@id": `${siteUrl}/#organization` },
+      inLanguage: "en-US",
+      about: [
+        "US electricity rates",
+        "average electric bill estimates",
+        "electricity rate data guides"
+      ],
+      hasPart: [
+        { "@type": "WebPage", name: "Methodology", url: `${siteUrl}/methodology` },
+        { "@type": "WebPage", name: "Sources", url: `${siteUrl}/sources` },
+        { "@type": "WebPage", name: "Editorial policy", url: `${siteUrl}/editorial-policy` },
+        { "@type": "WebPage", name: "Privacy policy", url: `${siteUrl}/privacy` },
+        { "@type": "WebPage", name: "Contact", url: `${siteUrl}/contact` }
+      ]
+    }
+  ]
+};
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -67,6 +113,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         )}
       </head>
       <body className={`${inter.variable} ${spaceGrotesk.variable} ${newsreader.variable}`}>
+        <JsonLd data={siteStructuredData} />
         <header className="nav">
           <div className="container nav-inner">
             <Link className="brand" href="/" aria-label="wattbenchs home">

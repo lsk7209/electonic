@@ -1,15 +1,21 @@
 name: Submit sitemap to GSC
 
 on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "17 3 * * *"
   workflow_dispatch:
 
 jobs:
   submit:
     runs-on: ubuntu-latest
     env:
-      NEXT_PUBLIC_SITE_URL: ${{ secrets.NEXT_PUBLIC_SITE_URL }}
+      NEXT_PUBLIC_SITE_URL: https://wattbenchs.com
       GSC_CLIENT_FILE: ${{ github.workspace }}/gsc_client.json
       GSC_TOKEN_FILE: ${{ github.workspace }}/gsc_token.json
+      GSC_CLIENT_JSON: ${{ secrets.GSC_CLIENT_JSON }}
+      GSC_TOKEN_JSON: ${{ secrets.GSC_TOKEN_JSON }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -17,9 +23,23 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
+      - name: Wait for live sitemap
+        shell: bash
+        run: |
+          for attempt in {1..12}; do
+            if curl --fail --silent --show-error --location "$NEXT_PUBLIC_SITE_URL/sitemap.xml" > /tmp/sitemap.xml; then
+              grep -q "$NEXT_PUBLIC_SITE_URL" /tmp/sitemap.xml
+              exit 0
+            fi
+            sleep 10
+          done
+          echo "Live sitemap was not reachable after retries." >&2
+          exit 1
       - name: Write GSC credentials
         shell: bash
         run: |
-          printf '%s' '${{ secrets.GSC_CLIENT_JSON }}' > "$GSC_CLIENT_FILE"
-          printf '%s' '${{ secrets.GSC_TOKEN_JSON }}' > "$GSC_TOKEN_FILE"
+          test -n "$GSC_CLIENT_JSON"
+          test -n "$GSC_TOKEN_JSON"
+          printf '%s' "$GSC_CLIENT_JSON" > "$GSC_CLIENT_FILE"
+          printf '%s' "$GSC_TOKEN_JSON" > "$GSC_TOKEN_FILE"
       - run: npm run gsc:submit-sitemap
