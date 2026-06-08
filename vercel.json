@@ -1,0 +1,8 @@
+{
+  "crons": [
+    {
+      "path": "/api/cron/eia-sync",
+      "schedule": "0 9 1 * *"
+    }
+  ]
+}

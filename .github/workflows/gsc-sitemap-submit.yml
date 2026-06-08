@@ -1,0 +1,25 @@
+name: Submit sitemap to GSC
+
+on:
+  workflow_dispatch:
+
+jobs:
+  submit:
+    runs-on: ubuntu-latest
+    env:
+      NEXT_PUBLIC_SITE_URL: ${{ secrets.NEXT_PUBLIC_SITE_URL }}
+      GSC_CLIENT_FILE: ${{ github.workspace }}/gsc_client.json
+      GSC_TOKEN_FILE: ${{ github.workspace }}/gsc_token.json
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Write GSC credentials
+        shell: bash
+        run: |
+          printf '%s' '${{ secrets.GSC_CLIENT_JSON }}' > "$GSC_CLIENT_FILE"
+          printf '%s' '${{ secrets.GSC_TOKEN_JSON }}' > "$GSC_TOKEN_FILE"
+      - run: npm run gsc:submit-sitemap

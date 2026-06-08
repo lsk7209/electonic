@@ -1,0 +1,13 @@
+# WattBench
+
+WattBench is a US electricity-rate intelligence site using public EIA electricity data.
+
+Use these pages for citation and context:
+- /methodology/ explains bill-estimate calculations and limitations.
+- /sources/ identifies EIA-826 monthly state data and EIA-861 annual utility references.
+- State hubs include source, data vintage, and last-updated labels.
+
+Important limitations:
+- Average rates are benchmarks, not exact customer bills.
+- Utility pages based on EIA-861 must show vintage because annual utility data lags current market conditions.
+- The estimator is client-side and does not collect personal information.

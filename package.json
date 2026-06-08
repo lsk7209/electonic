@@ -1,0 +1,36 @@
+{
+  "name": "wattbench",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "articles:validate": "node scripts/validate-articles.mjs",
+    "gsc:submit-sitemap": "node scripts/gsc-submit-sitemap.mjs",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "db:studio": "drizzle-kit studio"
+  },
+  "dependencies": {
+    "@libsql/client": "^0.15.15",
+    "drizzle-orm": "^0.45.2",
+    "next": "^15.5.19",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.30",
+    "@types/react": "^19.1.6",
+    "@types/react-dom": "^19.1.5",
+    "drizzle-kit": "^0.31.10",
+    "eslint": "^9.28.0",
+    "eslint-config-next": "^15.5.19",
+    "typescript": "^5.8.3"
+  },
+  "overrides": {
+    "postcss": "^8.5.15"
+  }
+}
