@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       { userAgent: "*", allow: "/" },
       { userAgent: ["GPTBot", "Google-Extended", "PerplexityBot"], allow: "/" }
     ],
-    sitemap: [`${siteUrl}/sitemap.xml`, `${siteUrl}/rss.xml`]
+    sitemap: [`${siteUrl}/sitemap.xml`]
   };
 }

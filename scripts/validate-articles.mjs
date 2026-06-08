@@ -14,7 +14,7 @@ const dbSource = fs.readFileSync("lib/db/index.ts", "utf8");
 const envSource = fs.readFileSync("lib/env.ts", "utf8");
 const layoutSource = fs.readFileSync("app/layout.tsx", "utf8");
 const envExampleSource = fs.readFileSync(".env.example", "utf8");
-const adsTxtSource = fs.readFileSync("app/ads.txt/route.ts", "utf8");
+const adsTxtSource = fs.readFileSync("public/ads.txt", "utf8");
 
 function matches(pattern) {
   return [...source.matchAll(pattern)].map((match) => match[1]);
@@ -143,8 +143,12 @@ for (const requiredTrackingSnippet of [
   }
 }
 
-if (!adsTxtSource.includes("pub-3050601904412736") || adsTxtSource.includes("status: 404")) {
-  throw new Error("ads.txt must return a configured AdSense publisher line without a 404 fallback.");
+if (fs.existsSync("app/ads.txt/route.ts")) {
+  throw new Error("ads.txt should be served as a simple static public file, not a Next route.");
+}
+
+if (adsTxtSource.trim() !== "google.com, pub-3050601904412736, DIRECT, f08c47fec0942fa0") {
+  throw new Error("ads.txt must contain the exact configured AdSense publisher line.");
 }
 
 for (const requiredEiaSnippet of [
