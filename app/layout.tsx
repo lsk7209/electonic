@@ -90,7 +90,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </div>
             <div><strong>Data</strong><Link href="/methodology">Methodology</Link><Link href="/sources">Sources</Link><Link href="/compare">Compare</Link></div>
             <div><strong>Guides</strong><Link href="/blog">Blog</Link><Link href="/assistance/california">Bill help</Link><Link href="/save/texas">Save money</Link><Link href="/rss.xml">RSS feed</Link></div>
-            <div><strong>Company</strong><Link href="/about">About</Link><Link href="/privacy">Privacy</Link><Link href="/sources">Sources</Link><a href="mailto:editorial@wattbenchs.com">Contact</a></div>
+            <div><strong>Company</strong><Link href="/about">About</Link><Link href="/contact">Contact</Link><Link href="/privacy">Privacy</Link><Link href="/sources">Sources</Link></div>
           </div>
         </footer>
       </body>

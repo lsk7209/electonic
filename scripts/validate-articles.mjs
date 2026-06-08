@@ -4,6 +4,7 @@ const source = fs.readFileSync("lib/articles.ts", "utf8");
 const blogSource = fs.readFileSync("app/blog/page.tsx", "utf8");
 const guidesSource = fs.readFileSync("app/guides/page.tsx", "utf8");
 const articlePageSource = fs.readFileSync("app/guides/[slug]/page.tsx", "utf8");
+const contactPageSource = fs.readFileSync("app/contact/page.tsx", "utf8");
 const sitemapSource = fs.readFileSync("app/sitemap.ts", "utf8");
 const guideHubSource = fs.readFileSync("lib/guide-hubs.ts", "utf8");
 const guideHubPageSource = fs.readFileSync("components/GuideHub.tsx", "utf8");
@@ -113,6 +114,22 @@ if (guidesSource.includes("redirect(")) {
 
 if (!sitemapSource.includes('"/guides"')) {
   throw new Error("sitemap must include /guides.");
+}
+
+if (!sitemapSource.includes('"/contact"') || !layoutSource.includes('href="/contact"')) {
+  throw new Error("AdSense readiness requires a crawlable contact page linked from the layout and sitemap.");
+}
+
+for (const requiredContactSnippet of [
+  "editorial@wattbenchs.com",
+  "data corrections",
+  "privacy requests",
+  "methodology",
+  "sources"
+]) {
+  if (!contactPageSource.includes(requiredContactSnippet)) {
+    throw new Error(`Contact page must include ${requiredContactSnippet}.`);
+  }
 }
 
 for (const requiredBrandSnippet of [

@@ -19,6 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/methodology",
     "/sources",
     "/about",
+    "/contact",
     "/privacy",
     ...states.map((state) => `/${state.slug}`),
     ...states.flatMap((state) => state.utilities.map((utility) => `/${state.slug}/${utility.slug}`)),
