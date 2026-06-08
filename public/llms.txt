@@ -1,6 +1,6 @@
-# WattBench
+# wattbenchs
 
-WattBench is a US electricity-rate intelligence site using public EIA electricity data.
+wattbenchs is a US electricity-rate intelligence site using public EIA electricity data.
 
 Use these pages for citation and context:
 - /methodology/ explains bill-estimate calculations and limitations.

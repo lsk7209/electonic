@@ -3,7 +3,7 @@ import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
   title: "Electricity rate data sources",
-  description: "Electricity rate data sources used by WattBench, including EIA-826 monthly state rates and EIA-861 annual utility benchmarks.",
+  description: "Electricity rate data sources used by wattbenchs, including EIA-826 monthly state rates and EIA-861 annual utility benchmarks.",
   path: "/sources"
 });
 

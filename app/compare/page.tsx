@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Estimator } from "@/components/Estimator";
 import { SourceBadge } from "@/components/SourceBadge";
-import { directory } from "@/lib/data";
+import { getDirectoryWithLiveRates } from "@/lib/eia";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
@@ -10,7 +10,8 @@ export const metadata: Metadata = pageMetadata({
   path: "/compare"
 });
 
-export default function ComparePage() {
+export default async function ComparePage() {
+  const directory = await getDirectoryWithLiveRates();
   const max = Math.max(...directory.map((row) => row.rate));
   return (
     <main>

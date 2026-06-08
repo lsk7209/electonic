@@ -1,8 +1,10 @@
 import Link from "next/link";
-import { directory, getState } from "@/lib/data";
+import { getState } from "@/lib/data";
+import { getDirectoryWithLiveRates } from "@/lib/eia";
 import { Sparkline } from "@/components/TrendChart";
 
-export function StateDirectory() {
+export async function StateDirectory() {
+  const directory = await getDirectoryWithLiveRates();
   return (
     <div className="card rank-table" id="states">
       <div className="rank-head">

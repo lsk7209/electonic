@@ -1,4 +1,4 @@
-export const siteUrl = normalizeSiteUrl(process.env.NEXT_PUBLIC_SITE_URL || "https://example.com");
+export const siteUrl = normalizeSiteUrl(process.env.NEXT_PUBLIC_SITE_URL || "https://wattbenchs.com");
 
 export function normalizeSiteUrl(value: string) {
   return value.replace(/\/+$/, "");
@@ -10,7 +10,7 @@ export function absoluteUrl(path = "/") {
 }
 
 export function assertProductionSiteUrl() {
-  if (!process.env.NEXT_PUBLIC_SITE_URL || siteUrl === "https://example.com") {
+  if (siteUrl === "https://example.com") {
     throw new Error("Set NEXT_PUBLIC_SITE_URL to the production URL before sitemap/GSC operations.");
   }
   return siteUrl;

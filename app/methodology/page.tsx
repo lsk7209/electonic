@@ -4,7 +4,7 @@ import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
   title: "Electric bill estimate methodology",
-  description: "Electric bill estimate methodology for WattBench, including EIA data sources, rate calculations, included factors, excluded fees, and data freshness rules.",
+  description: "Electric bill estimate methodology for wattbenchs, including EIA data sources, rate calculations, included factors, excluded fees, and data freshness rules.",
   path: "/methodology"
 });
 
@@ -15,7 +15,7 @@ export default function MethodologyPage() {
         <div className="reading hero-copy">
           <SourceBadge />
           <h1>Electric bill estimate methodology</h1>
-          <p>WattBench turns public average rates into conservative bill ranges. The calculation is useful for benchmarking, not tariff-level billing.</p>
+          <p>wattbenchs turns public average rates into conservative bill ranges. The calculation is useful for benchmarking, not tariff-level billing.</p>
         </div>
       </section>
       <section className="section">
@@ -29,7 +29,7 @@ export default function MethodologyPage() {
           <h2>Freshness rules</h2>
           <p>State pages should use EIA-826 monthly data for current rate context. Utility pages use EIA-861 annual data as a reference and must show vintage labels.</p>
           <h2>Advertising and editorial separation</h2>
-          <p>WattBench is designed for AdSense Auto Ads, but estimate tools, disclaimers, source labels, and editorial explanations remain the primary page content. Manual ad slots are intentionally not placed in the layout.</p>
+          <p>wattbenchs is designed for AdSense Auto Ads, but estimate tools, disclaimers, source labels, and editorial explanations remain the primary page content. Manual ad slots are intentionally not placed in the layout.</p>
         </div>
       </section>
     </main>

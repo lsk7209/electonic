@@ -21,7 +21,7 @@ export default function HomePage() {
         "@context": "https://schema.org",
         "@type": "Dataset",
         name: "US residential electricity rate benchmarks",
-        creator: "WattBench",
+        creator: "wattbenchs",
         license: "https://www.eia.gov/about/copyrights_reuse.php",
         url: absoluteUrl("/"),
         variableMeasured: "Average residential retail electricity price"

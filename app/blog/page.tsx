@@ -70,7 +70,7 @@ export default function BlogPage() {
         "@graph": [
           {
             "@type": "Blog",
-            name: "WattBench electric bill blog",
+            name: "wattbenchs electric bill blog",
             url: absoluteUrl("/blog"),
             blogPost: articles.map((article) => ({
               "@type": "BlogPosting",
@@ -196,7 +196,7 @@ export default function BlogPage() {
                 <span>{article.mainKeyword}</span>
                 {article.expandedKeywords.slice(0, 2).map((keyword) => <span key={keyword}>{keyword}</span>)}
               </div>
-              <span className="muted">{article.date} - WattBench Data Desk</span>
+              <span className="muted">{article.date} - wattbenchs Data Desk</span>
               <span className="button-secondary" style={{ width: "fit-content" }}>Read guide</span>
             </Link>
           ))}

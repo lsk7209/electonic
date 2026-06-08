@@ -8,6 +8,12 @@ const sitemapSource = fs.readFileSync("app/sitemap.ts", "utf8");
 const guideHubSource = fs.readFileSync("lib/guide-hubs.ts", "utf8");
 const guideHubPageSource = fs.readFileSync("components/GuideHub.tsx", "utf8");
 const cssSource = fs.readFileSync("app/globals.css", "utf8");
+const eiaSource = fs.readFileSync("lib/eia.ts", "utf8");
+const eiaCronSource = fs.readFileSync("app/api/cron/eia-sync/route.ts", "utf8");
+const dbSource = fs.readFileSync("lib/db/index.ts", "utf8");
+const envSource = fs.readFileSync("lib/env.ts", "utf8");
+const layoutSource = fs.readFileSync("app/layout.tsx", "utf8");
+const envExampleSource = fs.readFileSync(".env.example", "utf8");
 
 function matches(pattern) {
   return [...source.matchAll(pattern)].map((match) => match[1]);
@@ -106,6 +112,47 @@ if (guidesSource.includes("redirect(")) {
 
 if (!sitemapSource.includes('"/guides"')) {
   throw new Error("sitemap must include /guides.");
+}
+
+for (const requiredBrandSnippet of [
+  "https://wattbenchs.com",
+  "wattbenchs"
+]) {
+  if (!envSource.includes(requiredBrandSnippet) && !layoutSource.includes(requiredBrandSnippet) && !envExampleSource.includes(requiredBrandSnippet)) {
+    throw new Error(`Site brand/domain is missing required value: ${requiredBrandSnippet}`);
+  }
+}
+
+for (const requiredEiaSnippet of [
+  "fetchEiaResidentialStateRates",
+  "syncEiaResidentialStateRates",
+  "ensureEiaTables",
+  "getLatestLiveStateRates",
+  "getStatesWithLiveRates",
+  "getDirectoryWithLiveRates",
+  "EIA_API_KEY",
+  "TURSO_DATABASE_URL",
+  "api.eia.gov/v2/electricity/retail-sales/data/",
+  "onConflictDoUpdate"
+]) {
+  if (!eiaSource.includes(requiredEiaSnippet) && !dbSource.includes(requiredEiaSnippet)) {
+    throw new Error(`EIA/Turso implementation is missing required structure: ${requiredEiaSnippet}`);
+  }
+}
+
+for (const requiredCronSnippet of [
+  "syncEiaResidentialStateRates",
+  'status: "synced"',
+  "insertedOrUpdated",
+  "latestPeriods"
+]) {
+  if (!eiaCronSource.includes(requiredCronSnippet)) {
+    throw new Error(`EIA cron route is missing required sync behavior: ${requiredCronSnippet}`);
+  }
+}
+
+if (eiaCronSource.includes('status: "stub"') || eiaCronSource.includes("Production TODO")) {
+  throw new Error("EIA cron route must not remain a stub.");
 }
 
 for (const requiredHubSnippet of [

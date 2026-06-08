@@ -11,9 +11,9 @@ const newsreader = Newsreader({ subsets: ["latin"], variable: "--font-newsreader
 export const metadata: Metadata = {
   title: {
     default: "US electricity rates and average bill estimator",
-    template: "%s | WattBench"
+    template: "%s | wattbenchs"
   },
-  description: "US electricity rates, average electric bill estimates, state comparisons, and public EIA data guides from WattBench.",
+  description: "US electricity rates, average electric bill estimates, state comparisons, and public EIA data guides from wattbenchs.",
   metadataBase: new URL(siteUrl),
   alternates: {
     canonical: "/",
@@ -37,9 +37,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={`${inter.variable} ${spaceGrotesk.variable} ${newsreader.variable}`}>
         <header className="nav">
           <div className="container nav-inner">
-            <Link className="brand" href="/" aria-label="WattBench home">
+            <Link className="brand" href="/" aria-label="wattbenchs home">
               <span className="bolt">W</span>
-              <span>WattBench</span>
+              <span>wattbenchs</span>
             </Link>
             <nav className="nav-links" aria-label="Main navigation">
               {nav.map(([label, href]) => (
@@ -53,12 +53,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <footer className="footer">
           <div className="container footer-grid">
             <div>
-              <div className="brand"><span className="bolt">W</span><span>WattBench</span></div>
+              <div className="brand"><span className="bolt">W</span><span>wattbenchs</span></div>
               <p style={{ marginTop: 12 }}>Public-data electricity benchmarks, bill estimates, and practical guides. Not affiliated with any utility.</p>
             </div>
             <div><strong>Data</strong><Link href="/methodology">Methodology</Link><Link href="/sources">Sources</Link><Link href="/compare">Compare</Link></div>
             <div><strong>Guides</strong><Link href="/blog">Blog</Link><Link href="/assistance/california">Bill help</Link><Link href="/save/texas">Save money</Link><Link href="/rss.xml">RSS feed</Link></div>
-            <div><strong>Company</strong><Link href="/about">About</Link><Link href="/privacy">Privacy</Link><Link href="/sources">Sources</Link><a href="mailto:editorial@wattbench.example">Contact</a></div>
+            <div><strong>Company</strong><Link href="/about">About</Link><Link href="/privacy">Privacy</Link><Link href="/sources">Sources</Link><a href="mailto:editorial@wattbenchs.com">Contact</a></div>
           </div>
         </footer>
       </body>

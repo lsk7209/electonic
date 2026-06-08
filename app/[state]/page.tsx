@@ -8,6 +8,7 @@ import { RankBadge } from "@/components/RankBadge";
 import { SourceBadge } from "@/components/SourceBadge";
 import { TrendChart } from "@/components/TrendChart";
 import { getState, states } from "@/lib/data";
+import { getStateWithLiveRate } from "@/lib/eia";
 import { absoluteUrl } from "@/lib/env";
 import { pageMetadata } from "@/lib/seo";
 
@@ -30,7 +31,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function StatePage({ params }: Props) {
   const { state: slug } = await params;
-  const state = getState(slug);
+  const state = await getStateWithLiveRate(slug);
   if (!state) notFound();
   const isDeregulated = state.market === "deregulated";
 

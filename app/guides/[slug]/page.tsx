@@ -153,8 +153,8 @@ export default async function GuideArticlePage({ params }: Props) {
             description: article.metaDescription,
             datePublished: article.scheduledAt,
             dateModified: article.scheduledAt,
-            author: { "@type": "Organization", name: "WattBench Data Desk", url: absoluteUrl("/about") },
-            publisher: { "@type": "Organization", name: "WattBench", url: absoluteUrl("/") },
+            author: { "@type": "Organization", name: "wattbenchs Data Desk", url: absoluteUrl("/about") },
+            publisher: { "@type": "Organization", name: "wattbenchs", url: absoluteUrl("/") },
             mainEntityOfPage: absoluteUrl(`/guides/${article.slug}`),
             url: absoluteUrl(`/guides/${article.slug}`),
             keywords: [article.mainKeyword, ...article.expandedKeywords],
@@ -244,7 +244,7 @@ export default async function GuideArticlePage({ params }: Props) {
           </div>
           <h1 className="serif">{article.title}</h1>
           <p>{article.subtitle}</p>
-          <p className="muted">{article.date} - WattBench Data Desk</p>
+          <p className="muted">{article.date} - wattbenchs Data Desk</p>
         </div>
       </section>
       <section className="section">
@@ -340,7 +340,7 @@ export default async function GuideArticlePage({ params }: Props) {
             )}
             <div className="card card-pad">
               <p className="eyebrow">Author</p>
-              <p><strong>WattBench Data Desk</strong> publishes consumer-facing explanations based on public EIA data, visible methodology, and conservative bill estimates. This article was written directly in Codex without external API or external LLM prose generation.</p>
+              <p><strong>wattbenchs Data Desk</strong> publishes consumer-facing explanations based on public EIA data, visible methodology, and conservative bill estimates. This article was written directly in Codex without external API or external LLM prose generation.</p>
             </div>
           </article>
           <aside className="toc" aria-label="Article table of contents">

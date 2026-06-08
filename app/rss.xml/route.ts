@@ -27,7 +27,7 @@ export function GET() {
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0">
   <channel>
-    <title>WattBench electric bill blog</title>
+    <title>wattbenchs electric bill blog</title>
     <link>${absoluteUrl("/blog")}</link>
     <description>Electricity rates, average bill estimates, savings, and assistance guides.</description>
     <language>en-US</language>

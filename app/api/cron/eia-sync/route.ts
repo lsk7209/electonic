@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { syncEiaResidentialStateRates } from "@/lib/eia";
 
 export async function GET(request: NextRequest) {
   const expected = process.env.CRON_SECRET;
@@ -8,14 +9,22 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ ok: false, error: "Unauthorized" }, { status: 401 });
   }
 
-  // Production TODO:
-  // 1. Fetch EIA-826 monthly state residential/commercial/industrial rates.
-  // 2. Use EIA bulk download for backfills.
-  // 3. Upsert into Turso with period + vintage.
-  // 4. Revalidate changed state, utility, and guide paths.
-  return NextResponse.json({
-    ok: true,
-    status: "stub",
-    message: "EIA sync route is wired. Implement fetch/upsert after Phase 0 field mapping."
-  });
+  try {
+    const result = await syncEiaResidentialStateRates();
+    return NextResponse.json({
+      ok: true,
+      status: "synced",
+      insertedOrUpdated: result.insertedOrUpdated,
+      latestPeriods: [...result.latest.entries()].map(([state, rate]) => ({
+        state,
+        period: rate.period,
+        vintage: rate.vintage
+      }))
+    });
+  } catch (error) {
+    return NextResponse.json({
+      ok: false,
+      error: error instanceof Error ? error.message : "Unknown EIA sync error"
+    }, { status: 500 });
+  }
 }
