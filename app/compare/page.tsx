@@ -34,6 +34,7 @@ export default async function ComparePage() {
           <p className="muted">The most useful comparison is usually directional. Look for large gaps between states, then ask whether the difference comes from energy supply, delivery infrastructure, taxes, weather-driven usage, or plan design. A small rate gap may disappear once real household kWh use and fixed monthly charges are included.</p>
           <p className="muted">Readers moving between states should also compare climate and housing assumptions. A lower rate in a hotter region can still mean a larger summer bill, while a higher rate in a mild region may be offset by lower usage. The table is most useful when paired with a realistic monthly kWh estimate.</p>
           <p className="muted">Use rankings as a prompt for deeper questions. If a state appears near the expensive end, check whether the cause is fuel mix, transmission constraints, retail market rules, storm recovery charges, or policy costs. If a state appears cheaper, still confirm whether local utilities add fixed charges that make low-usage households pay more than the average suggests.</p>
+          <p className="muted">A second useful pass is to compare volatility. Some regions have seasonal price pressure, fuel-cost adjustments, or retail plans that can change faster than annual averages. If a household is choosing a plan, the current tariff and contract terms matter more than the statewide ranking.</p>
           <div className="bar-list" style={{ marginTop: 22 }}>
             {directory.map((row) => (
               <div className="bar-row" key={row.abbr}>
@@ -50,6 +51,7 @@ export default async function ComparePage() {
             <p className="muted">If a state looks expensive, review whether assistance programs, medical baseline allowances, budget billing, weatherization support, or time-of-use plan changes are available. Those options depend on the utility and household situation, so the comparison page should be treated as the starting point for questions rather than the final answer.</p>
             <p className="muted">For renters, the better question may be whether electricity is used for heat, hot water, cooking, laundry, or only lights and plug load. For homeowners, insulation, heat pumps, electric vehicles, pool pumps, and solar billing rules can change the result more than a one- or two-cent difference in the statewide benchmark.</p>
             <p className="muted">For budget planning, compare several bill cases instead of one average. A 500 kWh apartment, a 900 kWh single-family home, and a 1,400 kWh electric-heating home can produce very different conclusions from the same rate table. That is why the estimator remains beside the comparison rather than hidden on a separate page.</p>
+            <p className="muted">When a comparison supports a real decision, save the assumptions used: state, rate, kWh, billing period, and whether the estimate included only energy or also delivery. Those notes make it easier to compare the result with a future bill or explain the difference to a utility representative.</p>
           </div>
         </div>
       </section>
