@@ -51,6 +51,23 @@ export default function HomePage() {
         </section>
 
         <section className="section">
+          <div className="container grid-2">
+            <div className="card card-pad">
+              <p className="eyebrow">How to read the estimate</p>
+              <h2>Separate usage, rate, and fixed charges before comparing bills</h2>
+              <p className="muted">A high electric bill is not always caused by a high state rate. Two households can pay very different bills at the same cents-per-kWh price because weather, heating fuel, appliance load, household size, and fixed utility charges change the monthly total.</p>
+              <p className="muted">Use the estimator as a screening tool: enter a realistic monthly kWh range, compare it with the state benchmark, then check your utility tariff or current bill for delivery charges, riders, taxes, and minimum fees before making a budget decision.</p>
+            </div>
+            <div className="card card-pad">
+              <p className="eyebrow">Editorial standard</p>
+              <h2>Public data first, no savings guarantees</h2>
+              <p className="muted">wattbenchs avoids unsupported savings promises. State pages and guides explain the source vintage, where a benchmark comes from, and which parts of a bill may not be captured by a simple average residential rate.</p>
+              <p className="muted">For account-specific disputes, outage credits, shutoff notices, medical baseline programs, or assistance eligibility, readers should use the utility, state regulator, or assistance-office link shown on the relevant guide instead of relying on an estimate alone.</p>
+            </div>
+          </div>
+        </section>
+
+        <section className="section">
           <div className="container" style={{ display: "grid", gap: 18 }}>
             <div>
               <p className="eyebrow">State rankings</p>
