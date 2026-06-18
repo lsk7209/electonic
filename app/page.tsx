@@ -59,6 +59,7 @@ export default function HomePage() {
               <p className="muted">Use the estimator as a screening tool: enter a realistic monthly kWh range, compare it with the state benchmark, then check your utility tariff or current bill for delivery charges, riders, taxes, and minimum fees before making a budget decision.</p>
               <p className="muted">For a quick audit, run three scenarios: a low-usage month, a normal month, and a seasonal peak month. If the peak result is the only one that looks unusual, weather or equipment load may be the better explanation. If every scenario looks high, the rate plan, delivery charge, or fixed customer charge deserves closer review.</p>
               <p className="muted">The next step is to compare the estimate with the usage line on an actual bill. If kWh is higher than expected, focus on appliances, HVAC runtime, insulation, or occupancy. If kWh looks normal but the bill is still high, focus on the price line items and whether the household is on a default, variable, or time-of-use plan.</p>
+              <p className="muted">This approach is also useful after a move. Instead of comparing a prior annual bill to a new address, compare expected kWh, the local benchmark rate, and the fixed customer charge separately. That prevents a relocation, new appliance mix, or changed heating fuel from being misread as a rate problem.</p>
             </div>
             <div className="card card-pad">
               <p className="eyebrow">Editorial standard</p>
@@ -67,6 +68,7 @@ export default function HomePage() {
               <p className="muted">For account-specific disputes, outage credits, shutoff notices, medical baseline programs, or assistance eligibility, readers should use the utility, state regulator, or assistance-office link shown on the relevant guide instead of relying on an estimate alone.</p>
               <p className="muted">When a guide mentions bill help, rate plans, or usage changes, the page should point readers back to a verifiable public source. That keeps the site useful for comparison while avoiding claims that a generic calculator cannot prove for a specific service address.</p>
               <p className="muted">Pages are reviewed to keep ads away from the core calculator task and to avoid confusing paid placement with utility data. If a reader needs a final answer, the page should make clear which public source or utility document can confirm the number.</p>
+              <p className="muted">The site is intentionally conservative with language. It can show a benchmark, explain why a bill might be high, and point to assistance or tariff resources, but it should not promise a lower bill, recommend a provider as a paid placement, or imply that a public average is the same as a customer-specific quote.</p>
             </div>
           </div>
         </section>
