@@ -22,6 +22,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/about",
     "/contact",
     "/privacy",
+    "/terms",
     ...states.map((state) => `/${state.slug}`),
     ...states.flatMap((state) => state.utilities.map((utility) => `/${state.slug}/${utility.slug}`)),
     ...states.flatMap((state) => [`/save/${state.slug}`, `/assistance/${state.slug}`]),
