@@ -57,12 +57,14 @@ export default function HomePage() {
               <h2>Separate usage, rate, and fixed charges before comparing bills</h2>
               <p className="muted">A high electric bill is not always caused by a high state rate. Two households can pay very different bills at the same cents-per-kWh price because weather, heating fuel, appliance load, household size, and fixed utility charges change the monthly total.</p>
               <p className="muted">Use the estimator as a screening tool: enter a realistic monthly kWh range, compare it with the state benchmark, then check your utility tariff or current bill for delivery charges, riders, taxes, and minimum fees before making a budget decision.</p>
+              <p className="muted">For a quick audit, run three scenarios: a low-usage month, a normal month, and a seasonal peak month. If the peak result is the only one that looks unusual, weather or equipment load may be the better explanation. If every scenario looks high, the rate plan, delivery charge, or fixed customer charge deserves closer review.</p>
             </div>
             <div className="card card-pad">
               <p className="eyebrow">Editorial standard</p>
               <h2>Public data first, no savings guarantees</h2>
               <p className="muted">wattbenchs avoids unsupported savings promises. State pages and guides explain the source vintage, where a benchmark comes from, and which parts of a bill may not be captured by a simple average residential rate.</p>
               <p className="muted">For account-specific disputes, outage credits, shutoff notices, medical baseline programs, or assistance eligibility, readers should use the utility, state regulator, or assistance-office link shown on the relevant guide instead of relying on an estimate alone.</p>
+              <p className="muted">When a guide mentions bill help, rate plans, or usage changes, the page should point readers back to a verifiable public source. That keeps the site useful for comparison while avoiding claims that a generic calculator cannot prove for a specific service address.</p>
             </div>
           </div>
         </section>
