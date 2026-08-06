@@ -43,6 +43,21 @@ export default function MethodologyPage() {
           <h2>Review and correction boundary</h2>
           <p>Use the estimate to decide what to inspect next: billing days, kWh, fixed and delivery charges, tax lines, and the tariff or plan name. Time-of-use pricing, solar exports, budget-billing reconciliation, and partial service months can all produce a difference that a state average cannot explain. If a reader finds an issue, they can send the page URL, the specific data point, and a public source through the <Link href="/contact">contact page</Link>. The team can then correct, clarify, or remove the claim based on the supporting record.</p>
           <p>These links document the public source records; they do not make an estimate a current tariff quote or an eligibility decision. See <Link href="/sources">the source register</Link> for the short data-use summary and <Link href="/editorial-policy">the editorial policy</Link> for correction requests.</p>
+          <h2>How to reproduce a comparison</h2>
+          <p>
+            Save the page date, source vintage, state or utility context, monthly kWh input, and the range
+            shown by the estimator. Re-run the calculation with the same inputs before interpreting a
+            change as a data change. If the result differs from a bill, split the difference into usage,
+            rate, billing days, fixed charges, taxes, credits, and plan-specific items rather than treating
+            the entire gap as an error in the benchmark.
+          </p>
+          <p>
+            The reproducible comparison is intentionally modest: it can show whether the scale of a bill is
+            broadly consistent with a public rate context, but it cannot validate a meter reading, a tariff
+            application, or an assistance decision. For those questions, the current provider statement,
+            tariff, or administering agency notice remains the source of record. Send the saved inputs and
+            public reference URL through <Link href="/contact">contact</Link> if a page needs correction.
+          </p>
           <h2>Advertising and editorial separation</h2>
           <p>wattbenchs is designed for AdSense Auto Ads, but estimate tools, disclaimers, source labels, and editorial explanations remain the primary page content. Manual ad slots are intentionally not placed in the layout.</p>
         </div>

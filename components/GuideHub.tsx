@@ -121,6 +121,25 @@ export function GuideHubPage({ hub }: Props) {
             <li>Use the EIA benchmark to frame a question, not to replace the utility&apos;s current account terms.</li>
             <li>Confirm changes directly with the utility, provider, or assistance office before enrolling, paying, or relying on a deadline.</li>
           </ol>
+          <h2>When a benchmark is not enough</h2>
+          <p>
+            Some questions cannot be answered from a state average. A service address may have a special
+            tariff, a seasonal adjustment, a demand component, a solar credit, a medical baseline, or an
+            assistance rule that is invisible in public average-rate data. Treat that missing detail as a
+            reason to gather one more document, not as permission to fill the gap with a confident number.
+          </p>
+          <p>
+            The safest next record is usually the latest bill plus the provider&apos;s current tariff or program
+            notice. Note the effective date and the customer class, then compare the bill&apos;s kWh and line
+            items with the guide&apos;s stated boundary. If the issue is a payment deadline, shutoff notice,
+            medical need, or eligibility decision, contact the responsible provider or agency promptly and
+            use the guide only to prepare questions and documents.
+          </p>
+          <ul>
+            <li>Do not treat an average rate as a quote for a specific account.</li>
+            <li>Do not infer eligibility from a general program description.</li>
+            <li>Keep the source URL, reporting period, and page date with any saved comparison.</li>
+          </ul>
         </div>
       </section>
     </main>
