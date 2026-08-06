@@ -8,6 +8,7 @@ export function SourceBadge({ vintage = VINTAGE }: { vintage?: number }) {
       <span className="chip">Data: {vintage}</span>
       <span className="chip">Updated: {UPDATED}</span>
       <Link className="chip" href="/methodology">Methodology</Link>
+      <Link className="chip" href="/sources">Sources</Link>
     </div>
   );
 }

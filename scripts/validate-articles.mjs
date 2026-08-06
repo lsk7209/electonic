@@ -6,6 +6,8 @@ const guidesSource = fs.readFileSync("app/guides/page.tsx", "utf8");
 const articlePageSource = fs.readFileSync("app/guides/[slug]/page.tsx", "utf8");
 const contactPageSource = fs.readFileSync("app/contact/page.tsx", "utf8");
 const editorialPolicySource = fs.readFileSync("app/editorial-policy/page.tsx", "utf8");
+const methodologySource = fs.readFileSync("app/methodology/page.tsx", "utf8");
+const sourcesPageSource = fs.readFileSync("app/sources/page.tsx", "utf8");
 const sitemapSource = fs.readFileSync("app/sitemap.ts", "utf8");
 const guideHubSource = fs.readFileSync("lib/guide-hubs.ts", "utf8");
 const guideHubPageSource = fs.readFileSync("components/GuideHub.tsx", "utf8");
@@ -146,6 +148,31 @@ for (const requiredEditorialSnippet of [
 ]) {
   if (!editorialPolicySource.includes(requiredEditorialSnippet)) {
     throw new Error(`Editorial policy must include ${requiredEditorialSnippet}.`);
+  }
+}
+
+for (const requiredMethodologySnippet of [
+  "EIA-826",
+  "EIA-861",
+  "Read the estimate beside the bill, not instead of it",
+  "api.eia.gov/v2/electricity/retail-sales/data/",
+  "eia.gov/electricity/data/eia861/",
+  "current utility bill"
+]) {
+  if (!methodologySource.includes(requiredMethodologySnippet)) {
+    throw new Error(`Methodology page is missing source or limitation evidence: ${requiredMethodologySnippet}`);
+  }
+}
+
+for (const requiredSourcesPageSnippet of [
+  "EIA retail-sales API",
+  "EIA-861 annual data",
+  "EIA electricity data catalog",
+  "program eligibility",
+  "utility bill"
+]) {
+  if (!sourcesPageSource.includes(requiredSourcesPageSnippet)) {
+    throw new Error(`Sources page is missing required source-use guidance: ${requiredSourcesPageSnippet}`);
   }
 }
 
