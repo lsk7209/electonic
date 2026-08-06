@@ -44,6 +44,13 @@ export default async function GuideArticlePage({ params }: Props) {
   const primaryLink = article.internalLinks[0] || { href: `/${state.slug}`, label: `${state.name} electricity rates` };
   const compareLink = article.internalLinks[1] || { href: "/compare", label: "compare state electricity rates" };
   const supportLink = article.internalLinks[2] || { href: "/methodology", label: "bill estimate methodology" };
+  const secondarySource = article.externalSource.href.includes("eia.gov")
+    ? { href: "https://api.eia.gov/v2/electricity/retail-sales/data/", label: "EIA retail-sales API" }
+    : article.externalSource.href.includes("energy.gov")
+      ? { href: "https://www.energy.gov/oe", label: "U.S. Department of Energy electricity office" }
+      : article.externalSource.href.includes("energystar.gov")
+        ? { href: "https://www.energystar.gov/about", label: "ENERGY STAR program information" }
+        : { href: "https://www.acf.hhs.gov/ocs/programs/liheap", label: "federal LIHEAP program information" };
   const relatedGuides = getRelatedArticles(article, 3);
   const matchingHubs = guideHubs.filter((hub) => hub.categories.includes(article.category) || hub.featuredSlugs.includes(article.slug)).slice(0, 2);
   const insightPanel = article.readerProblem || article.uniqueAngle ? (
@@ -137,6 +144,7 @@ export default async function GuideArticlePage({ params }: Props) {
     ...(article.detailBlocks && article.detailBlocks.length > 0 ? [{ href: "#detail-examples", label: "Examples and checks" }] : []),
     ...(article.actionItems && article.actionItems.length > 0 ? [{ href: "#next-actions", label: "What to do next" }] : []),
     { href: "#related-data", label: "Related data" },
+    { href: "#source-checks", label: "How to verify" },
     { href: "#next-step", label: "Next step" },
     ...(article.faq.length > 0 ? [{ href: "#quick-answers", label: "Quick answers" }] : []),
     ...(relatedGuides.length > 0 ? [{ href: "#related-guides", label: "Related guides" }] : [])
@@ -284,6 +292,29 @@ export default async function GuideArticlePage({ params }: Props) {
               </section>
             )}
             <Estimator fixedStateSlug={state.slug} title={`${state.name} example estimator`} compact />
+            <section id="source-checks" className="article-slice">
+              <h2>How to verify before acting</h2>
+              <p>
+                A public benchmark helps frame a question; it does not replace the current bill, tariff,
+                account rule, or assistance notice. Before changing a plan or buying equipment, record the
+                service address context, billing days, monthly kWh, fixed charges, and the date shown on
+                the source. Then open the provider or agency page that applies to the account and check
+                the effective date, customer class, eligibility rules, and required documents.
+              </p>
+              <p>
+                If the public data and the bill do not line up, keep the two explanations separate. A rate
+                benchmark can be current while a household uses more kWh, receives a longer bill, or has
+                a fee that the benchmark does not include. Use the <Link href="/methodology">methodology</Link>
+                page to understand the calculation boundary, and use the <Link href="/contact">correction route</Link>
+                when a page cites an outdated public value. This sequence makes the next call to a utility,
+                agency, or installer more specific and easier to verify.
+              </p>
+              <ul className="action-list">
+                <li>Separate usage, price, billing period, and fixed fees before comparing totals.</li>
+                <li>Use the current provider or agency notice for account-specific terms.</li>
+                <li>Save the source URL and date when a decision depends on a public figure.</li>
+              </ul>
+            </section>
             <section id="related-data">
               <h2>Related data</h2>
               <div className="source-note">
@@ -301,6 +332,7 @@ export default async function GuideArticlePage({ params }: Props) {
                 ))}
               </ul>
               <p>External reference: <a href={article.externalSource.href} rel="noopener noreferrer" target="_blank">{article.externalSource.label}</a>.</p>
+              <p>Secondary official context: <a href={secondarySource.href} rel="noopener noreferrer" target="_blank">{secondarySource.label}</a>.</p>
             </section>
             <div id="next-step" className="card card-pad surface" style={{ display: "flex", flexDirection: "column", gap: 12 }}>
               <h2>Next step</h2>
