@@ -99,6 +99,8 @@ p { margin: 0; }
 .hero-grid { display: grid; grid-template-columns: minmax(0, .9fr) minmax(420px, 1.1fr); gap: 34px; align-items: center; }
 .hero-copy { display: flex; flex-direction: column; gap: 18px; }
 .hero-copy p { color: var(--muted); font-size: 18px; max-width: 58ch; }
+.hero-estimator { display: grid; gap: 12px; }
+.hero-estimator > h2 { font-size: 1.25rem; }
 .meta-row { display: flex; gap: 8px; flex-wrap: wrap; }
 .chip {
   display: inline-flex;

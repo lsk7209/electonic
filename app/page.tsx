@@ -38,7 +38,10 @@ export default function HomePage() {
                 <Link className="button-secondary" href="/methodology">How estimates work</Link>
               </div>
             </div>
-            <Estimator />
+            <section className="hero-estimator" aria-labelledby="homepage-estimator-heading">
+              <h2 id="homepage-estimator-heading">Estimate your monthly electric bill</h2>
+              <Estimator />
+            </section>
           </div>
         </section>
 
