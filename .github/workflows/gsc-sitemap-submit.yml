@@ -1,10 +1,6 @@
 name: Submit sitemap to GSC
 
 on:
-  push:
-    branches: [main]
-  schedule:
-    - cron: "17 3 * * *"
   workflow_dispatch:
 
 jobs:
