@@ -21,7 +21,12 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { state: slug } = await params;
   const state = getState(slug);
-  if (!state) return {};
+  if (!state) {
+    return {
+      title: "Page not found",
+      alternates: { canonical: null },
+    };
+  }
   return pageMetadata({
     title: `${state.name} electricity rates: average electric bill estimate`,
     description: `${state.name} electricity rates, average electric bill estimates, EIA trend data, utility benchmarks, and bill-saving resources.`,
