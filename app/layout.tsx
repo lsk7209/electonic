@@ -1,3 +1,4 @@
+import AffiliateFleetScript from 'next/script';
 import type { Metadata } from "next";
 import { Inter, Newsreader, Space_Grotesk } from "next/font/google";
 import Link from "next/link";
@@ -141,6 +142,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <div><strong>Company</strong><Link href="/about">About</Link><Link href="/contact">Contact</Link><Link href="/privacy">Privacy</Link><Link href="/terms">Terms</Link><Link href="/sources">Sources</Link></div>
           </div>
         </footer>
+      <AffiliateFleetScript id="affiliate-os-fleet" src="https://multi-dashboard-one.vercel.app/fleet-widget.js" strategy="afterInteractive" />
       </body>
     </html>
   );
